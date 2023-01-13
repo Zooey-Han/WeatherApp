@@ -10,23 +10,23 @@ import SwiftUI
 struct MainView: View {
     
     var body: some View {
+        
         ZStack {
             Color(.systemGray3)
                 .ignoresSafeArea()
-            ScrollView {
+            ScrollView(showsIndicators: false) {
                 VStack(alignment: .leading, spacing: 20) {
                     Text("Seoul")
-                        .fontDesign(.monospaced)
                         .font(.title)
+                    
                     HStack(spacing: 80) {
                         Text("11:10")
-                            .fontDesign(.monospaced)
                         Image(systemName: "sun.max")
                             .font(.largeTitle)
                         Text("30°")
-                            .fontDesign(.monospaced)
                     }
                 }
+                .fontDesign(.monospaced)
                 .frame(height: UIScreen.main.bounds.height / 6)
                 .frame(maxWidth: UIScreen.main.bounds.width)
                 .background{
