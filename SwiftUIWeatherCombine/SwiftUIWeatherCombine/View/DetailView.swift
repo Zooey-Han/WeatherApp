@@ -57,7 +57,7 @@ struct DetailView: View {
                 VStack {
                     HStack {
                         VStack(alignment: .leading) {
-                            Text("Feel Like")
+                            Text("Chance of Rain")
                             Text("34°")
                         }
                         Spacer()
@@ -71,22 +71,8 @@ struct DetailView: View {
                     
                     HStack {
                         VStack(alignment: .leading) {
-                            Text("Clouds")
-                            Text("50 %")
-                        }
-                        Spacer()
-                        VStack(alignment: .leading) {
-                            Text("DewPoint")
-                            Text("16°")
-                        }
-                    }
-                    
-                    Divider()
-                    
-                    HStack {
-                        VStack(alignment: .leading) {
-                            Text("Wind")
-                            Text("0 mm")
+                            Text("visibility")
+                            Text("1.5mi")
                         }
                         Spacer()
                         VStack(alignment: .leading) {
@@ -99,13 +85,14 @@ struct DetailView: View {
                     
                     HStack {
                         VStack(alignment: .leading) {
-                            Text("visibility")
-                            Text("1.5mi")
+                            Text("Wind")
+                            Text("0 mm")
                         }
                         Spacer()
+                        
                         VStack(alignment: .leading) {
-                            Text("UV Index")
-                            Text("0")
+                            Text("Clouds  ")
+                            Text("50 %")
                         }
                     }
                 }
