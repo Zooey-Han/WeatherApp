@@ -7,16 +7,12 @@
 
 import Foundation
 
-struct Forecast: Codable, Hashable {
-    static func == (lhs: Forecast, rhs: Forecast) -> Bool {
-        return true
-    }
-    
+struct Forecast: Codable {
     let list: [List]
     let city: City
 }
 
-struct List: Codable, Hashable {
+struct List: Codable {
     let dt: Date
     let main: Main
     let weather: [Weather]
@@ -28,7 +24,7 @@ struct List: Codable, Hashable {
     let dt_txt: String
 }
 
-struct Main: Codable, Hashable {
+struct Main: Codable {
     let temp: Double
     let temp_min: Double
     let temp_max: Double
@@ -36,7 +32,7 @@ struct Main: Codable, Hashable {
     let humidity: Int
 }
 
-struct Weather: Codable, Hashable {
+struct Weather: Codable {
     let main: String
     let description: String
     let icon: String
@@ -46,19 +42,19 @@ struct Weather: Codable, Hashable {
     }
 }
 
-struct Clouds: Codable, Hashable {
+struct Clouds: Codable {
     let all : Int
 }
 
-struct Wind: Codable, Hashable {
+struct Wind: Codable {
     let speed: Double
 }
 
-struct Sys: Codable, Hashable {
+struct Sys: Codable {
     let pod: String
 }
 
-struct City: Codable, Hashable {
+struct City: Codable {
     let id: Int
     let name: String
     let country: String
