@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     
-    @ObservedObject var viewModel: ViewModel = ViewModel()
+    @ObservedObject var forecastList: ForecastListViewModel = ForecastListViewModel()
     
     var body: some View {
         NavigationStack {
@@ -18,9 +18,9 @@ struct MainView: View {
                     .ignoresSafeArea()
                 VStack {
                     HStack {
-                        TextField("Enter Location", text: $viewModel.location)
+                        TextField("Enter Location", text: $forecastList.location)
                         Button {
-                            viewModel.getWeatherForecast(for: viewModel.location)
+                            forecastList.getWeatherForecast()
                         } label: {
                             Image(systemName: "magnifyingglass.circle.fill")
                         }
@@ -29,7 +29,7 @@ struct MainView: View {
                     
                     ScrollView(showsIndicators: false) {
                         
-                        ForEach(viewModel.forecastArray, id: \.city.id) { forcast in
+                        ForEach(forecastList.forecastArray, id: \.city.id) { forcast in
                             NavigationButtonView(forecast: forcast)
                         }
                     }
@@ -45,6 +45,6 @@ struct MainView: View {
 
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView(viewModel: ViewModel())
+        MainView(forecastList: ForecastListViewModel())
     }
 }

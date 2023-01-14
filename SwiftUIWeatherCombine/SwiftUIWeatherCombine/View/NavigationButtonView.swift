@@ -6,16 +6,11 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct NavigationButtonView: View {
     
     var forecast: Forecast
-    
-    static let dateformat: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        return formatter
-    }()
     
     var body: some View {
         
@@ -24,12 +19,14 @@ struct NavigationButtonView: View {
         } label: {
             VStack(alignment: .leading, spacing: 20) {
                 Text("\(forecast.city.name)")
-                    .font(.title)
+                    .font(.title2)
                 
                 HStack(spacing: 100) {
-                    Text("\(forecast.city.timezone, formatter: NavigationButtonView.dateformat)")
-                    Image(systemName: "sun.max")
-                        .font(.largeTitle)
+                    Text("\(forecast.city.timezone, formatter: ForecastViewModel.dateFormatter)")
+                    WebImage(url: forecast.list[0].weather[0].weatherIconURL)
+                        .resizable()
+                        .scaledToFit()
+                        .frame(width: 70)
                     Text("\(String(format: "%.0f", forecast.list[0].main.temp))°")
                 }
             }
