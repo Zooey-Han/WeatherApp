@@ -12,15 +12,19 @@ struct MainView: View {
     @ObservedObject var forecastList: ForecastListViewModel = ForecastListViewModel()
     
     var body: some View {
+        
         NavigationStack {
             ZStack {
                 Color(.systemGray3)
                     .ignoresSafeArea()
                 VStack {
                     HStack {
-                        TextField("Enter Location", text: $forecastList.location)
+                        TextField("Enter Location", text: $forecastList.location) {
+                            forecastList.getWeatherForecast()
+                        }
                         Button {
                             forecastList.getWeatherForecast()
+                            forecastList.location = ""
                         } label: {
                             Image(systemName: "magnifyingglass.circle.fill")
                         }
@@ -34,6 +38,15 @@ struct MainView: View {
                         }
                     }
                 }
+            }
+            .alert(item: $forecastList.appError) { appAlert in
+                Alert(title: Text("Error"),
+                      message: Text("""
+                    \(appAlert.errorString)
+                    Please try again later
+                    """
+                                   )
+                )
             }
         }
         .fontDesign(.monospaced)
