@@ -16,8 +16,6 @@ struct DetailView: View {
         
         VStack(spacing: 20) {
             VStack {
-                
-                
                 Text("\(forecast.city.name)")
                     .font(.title)
                 Image(systemName: "sun.max")
@@ -33,24 +31,21 @@ struct DetailView: View {
                     
                     VStack {
                         Text("Sunrise")
-                        Text("\(forecast.city.name)")
+                        Text("\(forecast.city.sunrise, formatter: NavigationButtonView.dateformat)")
                     }
                     
                     VStack {
                         Text("Sunset")
-                        Text("\(forecast.city.sunset)")
-                        
+                        Text("\(forecast.city.sunset, formatter: NavigationButtonView.dateformat)")
                     }
                 }
                 .padding()
                 
-                
                 ScrollView(.horizontal, showsIndicators: false) {
-                    
                     HStack {
                         ForEach(forecast.list, id: \.dt) { list in
                             VStack(spacing: 10) {
-                                Text("\(list.dt)")
+                                Text("\(list.dt, formatter: NavigationButtonView.dateformat)")
                                 Image(systemName: "sun.max")
                                 HStack(spacing: 3) {
                                     Text("\(String(format: "%.0f", list.main.temp_min))°")
@@ -60,7 +55,6 @@ struct DetailView: View {
                             }
                         }
                     }
-                    
                 }
                 .padding()
                 
@@ -69,8 +63,22 @@ struct DetailView: View {
                     VStack {
                         HStack {
                             VStack(alignment: .leading) {
+                                Text("Discription")
+                                Text("\(forecast.list[0].weather[0].description)")
+                            }
+                        }
+                        Spacer()
+                        VStack(alignment: .leading) {
+                            Text("Weather")
+                            Text("\(forecast.list[0].weather[0].main)")
+                        }
+                        
+                        Divider()
+                        
+                        HStack {
+                            VStack(alignment: .leading) {
                                 Text("Chance of Rain")
-                                Text("\(String(format: "%.0f", forecast.list[0].pop))%")
+                                Text("\(String(format: "%.0f", forecast.list[0].pop)) %")
                             }
                             Spacer()
                             VStack(alignment: .leading) {

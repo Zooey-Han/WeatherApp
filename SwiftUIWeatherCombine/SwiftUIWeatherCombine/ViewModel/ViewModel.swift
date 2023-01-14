@@ -11,13 +11,9 @@ import CoreLocation
 class ViewModel: ObservableObject {
     
     @Published var location: String = ""
-//    @Published var forecast: Forecast? = nil
     @Published var forecastArray: [Forecast] = []
     
-    var dateFormatter = DateFormatter()
-    init() {
-        dateFormatter.dateFormat = "HH:mm"
-    }
+    
     
     func getWeatherForecast(for location: String) {
         let apiService = APIService.shared
@@ -31,7 +27,6 @@ class ViewModel: ObservableObject {
                 apiService.getJSON(urlString: "http://api.openweathermap.org/data/2.5/forecast?lat=\(lat)&lon=\(lon)&appid=54bff87b9c05c8c77315a573612ac04b&units=metric", dateDecodingStarategy: .secondsSince1970) { (result: Result<Forecast, APIService.APIError>) in
                     switch result {
                     case .success(let forecast):
-//                        self.forecast = forecast
                         self.forecastArray.append(forecast)
 //                        for list in forecast.list {
 //                            print(dateFormatter.string(from: list.dt))
