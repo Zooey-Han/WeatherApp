@@ -9,10 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     
+    @ObservedObject var viewModel: ViewModel
+    
     var body: some View {
         NavigationStack {
             VStack {
-                MainView()
+                MainView(viewModel: viewModel)
             }
         }
     }
@@ -20,6 +22,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView(viewModel: ViewModel())
     }
 }

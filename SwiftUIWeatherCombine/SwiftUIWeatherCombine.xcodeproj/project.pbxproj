@@ -15,6 +15,7 @@
 		63B56BDD297163C100EA9DF2 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B56BDC297163C100EA9DF2 /* DetailView.swift */; };
 		63B56BE729717A4600EA9DF2 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B56BE629717A4600EA9DF2 /* Weather.swift */; };
 		63B56BEB29719C7F00EA9DF2 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63B56BEA29719C7F00EA9DF2 /* APIService.swift */; };
+		63C353602972DF7800848CFB /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C3535F2972DF7800848CFB /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		63B56BE629717A4600EA9DF2 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		63B56BEA29719C7F00EA9DF2 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		63B56BEC2971B4BC00EA9DF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		63C3535F2972DF7800848CFB /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,6 +103,7 @@
 			isa = PBXGroup;
 			children = (
 				63B56BEA29719C7F00EA9DF2 /* APIService.swift */,
+				63C3535F2972DF7800848CFB /* ViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 				63B56BDD297163C100EA9DF2 /* DetailView.swift in Sources */,
 				63B56BDB297163AF00EA9DF2 /* MainView.swift in Sources */,
 				63B56BCC2971611100EA9DF2 /* SwiftUIWeatherCombineApp.swift in Sources */,
+				63C353602972DF7800848CFB /* ViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
