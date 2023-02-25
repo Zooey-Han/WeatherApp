@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIApplication {
-    func endEditiong() {
+    func endEditing() {
         sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
     }
 }

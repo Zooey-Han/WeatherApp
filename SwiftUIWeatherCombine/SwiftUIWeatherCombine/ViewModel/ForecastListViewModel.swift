@@ -16,7 +16,7 @@ class ForecastListViewModel: ObservableObject {
     @Published var location: String = ""
     
     func getWeatherForecast() {
-        UIApplication.shared.endEditiong()
+        UIApplication.shared.endEditing()
         let apiService = APIServiceCombine.shared
         CLGeocoder().geocodeAddressString(location) { (placemarks, error) in
             if let error = error as? CLError {
@@ -32,7 +32,7 @@ class ForecastListViewModel: ObservableObject {
             }
             if let lat = placemarks?.first?.location?.coordinate.latitude,
                let lon = placemarks?.first?.location?.coordinate.longitude {
-                apiService.getJSON(urlString: "http://api.openweathermap.org/data/2.5/forecast?lat=\(lat)&lon=\(lon)&appid=54bff87b9c05c8c77315a573612ac04b&units=metric", dateDecodingStarategy: .secondsSince1970) { (result: Result<Forecast, APIServiceCombine.APIError>) in
+                apiService.getJSON(urlString: "http://api.openweathermap.org/data/2.5/forecast?lat=\(lat)&lon=\(lon)&appid=YOUR_KEY&units=metric", dateDecodingStarategy: .secondsSince1970) { (result: Result<Forecast, APIServiceCombine.APIError>) in
                     switch result {
                     case .success(let forecast):
                         DispatchQueue.main.async {

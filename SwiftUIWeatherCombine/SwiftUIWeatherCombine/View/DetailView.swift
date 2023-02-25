@@ -19,15 +19,15 @@ struct DetailView: View {
             VStack {
                 Text("\(forecast.city.name)")
                     .font(.title)
-                WebImage(url: forecast.list[0].weather[0].weatherIconURL)
+                WebImage(url: forecast.list.first?.weather.first?.weatherIconURL)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100)
                 HStack(spacing: 40) {
-                    Text("▼ \(ForecastViewModel.numberFormatter.string(for: forecast.list[0].main.temp_min)!)°")
-                    Text("\(ForecastViewModel.numberFormatter.string(for: forecast.list[0].main.temp)!)°")
+                    Text("▼ \(ForecastViewModel.numberFormatter.string(for: forecast.list.first?.main.temp_min)!)°")
+                    Text("\(ForecastViewModel.numberFormatter.string(for: forecast.list.first?.main.temp)!)°")
                         .font(.title)
-                    Text("▲ \(ForecastViewModel.numberFormatter.string(for: forecast.list[0].main.temp_max)!)°")
+                    Text("▲ \(ForecastViewModel.numberFormatter.string(for: forecast.list.first?.main.temp_max)!)°")
                 }
                 
                 HStack(spacing: 130) {
@@ -49,11 +49,11 @@ struct DetailView: View {
                         ForEach(forecast.list, id: \.dt) { list in
                             VStack(spacing: 10) {
                                 Text("\(list.dt, formatter: ForecastViewModel.dateFormatter)")
-                                WebImage(url: forecast.list[0].weather[0].weatherIconURL)
+                                WebImage(url: forecast.list.first?.weather.first?.weatherIconURL)
                                 HStack(spacing: 3) {
-                                    Text("\(ForecastViewModel.numberFormatter.string(for: forecast.list[0].main.temp_min)!)°")
+                                    Text("\(ForecastViewModel.numberFormatter.string(for: forecast.list.first?.main.temp_min)!)°")
                                         .foregroundColor(.white)
-                                    Text("\(ForecastViewModel.numberFormatter.string(for: forecast.list[0].main.temp_max)!)°")
+                                    Text("\(ForecastViewModel.numberFormatter.string(for: forecast.list.first?.main.temp_max)!)°")
                                 }
                             }
                             .padding()
@@ -82,12 +82,12 @@ struct DetailView: View {
                         HStack {
                             VStack(alignment: .leading) {
                                 Text("Chance of Rain")
-                                Text("\(ForecastViewModel.numberFormatter.string(for: forecast.list[0].pop)!) %")
+                                Text("\(ForecastViewModel.numberFormatter.string(for: forecast.list.first?.pop)!) %")
                             }
                             Spacer()
                             VStack(alignment: .leading) {
                                 Text("Humidity ")
-                                Text("\(ForecastViewModel.numberFormatter.string(for: forecast.list[0].main.humidity)!) %")
+                                Text("\(ForecastViewModel.numberFormatter.string(for: forecast.list.first?.main.humidity)!) %")
                             }
                         }
                         

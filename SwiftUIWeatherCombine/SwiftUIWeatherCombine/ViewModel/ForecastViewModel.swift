@@ -9,8 +9,6 @@ import Foundation
 
 struct ForecastViewModel {
     
-    let forecast: [Forecast]
-    
     static var dateFormatter: DateFormatter {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"

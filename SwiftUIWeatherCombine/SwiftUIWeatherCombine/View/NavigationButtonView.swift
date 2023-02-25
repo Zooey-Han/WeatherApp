@@ -23,7 +23,7 @@ struct NavigationButtonView: View {
                 
                 HStack(spacing: 100) {
                     Text("\(forecast.city.timezone, formatter: ForecastViewModel.dateFormatter)")
-                    WebImage(url: forecast.list[0].weather[0].weatherIconURL)
+                    WebImage(url: forecast.list.first?.weather.first?.weatherIconURL)
                         .resizable()
                         .scaledToFit()
                         .frame(width: 70)
